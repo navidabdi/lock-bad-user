@@ -1,7 +1,6 @@
 <?php
 
-namespace LockBadUser\Setup;
-
+namespace Webkima\LockBadUser;
 
 class LockUser
 {
@@ -91,4 +90,19 @@ class LockUser
 
         $sessions->destroy_all();
     }
+
+  /**
+   * Gets the singleton instance of the plugin.
+   *
+   * @return self The singleton instance of the InpsydePlugin class.
+   */
+  public static function instance()
+  {
+    static $instance;
+    if (!$instance) {
+      $instance = new self();
+      $instance->register();
+    }
+    return $instance;
+  }
 }

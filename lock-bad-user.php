@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Lock Bad User
  * Plugin URI: https://wordpress.org/plugins/lock-bad-user/
- * Description: With this plugin you can block bad users without deleting the account.
+ * Description: With this plugin you can block bad users without deleting their accounts.
  * Version: 1.0.0
  * Author: Nabi Abdi
  * Author URI: http://Webkima.com
@@ -24,16 +24,21 @@
  * GNU General Public License for more details.
  */
 
-if(!defined('ABSPATH')) exit('restricted access');
+declare(strict_types=1);
+
+namespace Webkima\LockBadUser;
+
+if (!defined('ABSPATH')) {
+  exit; // Exit if accessed directly.
+}
 
 
 # Define constants
 define('LOCK_BAD_USER_PLUGIN_BASE_URL', plugins_url('',  __FILE__ ));
 define('LOCK_BAD_USER_PLUGIN_BASE_PATH', plugin_dir_path( __FILE__ ));
 
-/*
-* the autoloader
-*/
-if (file_exists(dirname(__FILE__) . '/autoloader/autoload.php')) require_once dirname(__FILE__) . '/autoloader/autoload.php';
-if (class_exists('LockBadUser\\Init')) LockBadUser\Init::register_services();
+if (!class_exists(LockUser::class) && is_readable(__DIR__ . '/vendor/autoload.php')) {
+  require_once __DIR__ . '/vendor/autoload.php';
+}
+class_exists(LockUser::class) && LockUser::instance();
 
