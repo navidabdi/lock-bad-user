@@ -65,7 +65,11 @@ class LockUser
             if ($locking_data) {
                 $message = apply_filters(
                     'account_lock_message',
-                    sprintf('<strong>%s</strong> %s', 'Error:', 'Your account has been locked. '),
+                    sprintf(
+                      '<strong>%s</strong> %s',
+                      __('Error:', 'lock-bad-user'),
+                      __('Your account has been locked.', 'lock-bad-user')
+                    ),
                     $user
                 );
                 return new \WP_Error('authentication_failed', $message);
