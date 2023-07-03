@@ -37,6 +37,10 @@ if (!defined('ABSPATH')) {
 define('LOCK_BAD_USER_PLUGIN_BASE_URL', plugins_url('',  __FILE__ ));
 define('LOCK_BAD_USER_PLUGIN_BASE_PATH', plugin_dir_path( __FILE__ ));
 
+register_activation_hook(__FILE__, __NAMESPACE__ . '\Schema::activate');
+register_deactivation_hook(__FILE__, __NAMESPACE__ . '\Schema::deactivate');
+register_uninstall_hook(__FILE__, __NAMESPACE__ . '\Schema::uninstall');
+
 if (!class_exists(LockUser::class) && is_readable(__DIR__ . '/vendor/autoload.php')) {
   require_once __DIR__ . '/vendor/autoload.php';
 }
