@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webkima\LockBadUser;
 
 class LockUser
 {
-    public function register()
+    public function register(): void
     {
         $this->initHook();
     }
 
-    public function initHook()
+    public function initHook(): void
     {
         add_action('edit_user_profile', array($this, 'outputLockStatusOptions'));
         add_action('edit_user_profile_update', array($this, 'saveLockStatusOption'));
@@ -17,18 +19,18 @@ class LockUser
         add_filter('allow_password_reset', array($this, 'allowPasswordReset'), 9999, 2);
     }
 
-    private function isUserLocked($user_id)
+    private function isUserLocked($user_id): bool
     {
-        return get_user_meta($user_id, 'account_locked', TRUE);
+        return (bool) get_user_meta($user_id, 'account_locked', TRUE);
     }
 
-    public function outputLockStatusOptions($user)
+    public function outputLockStatusOptions($user): void
     {
         $locking_data = $this->isUserLocked($user->data->ID);
         require_once LOCK_BAD_USER_PATH . 'templates/output_lock_status_options.php';
     }
 
-    public function saveLockStatusOption($user_id)
+    public function saveLockStatusOption($user_id): void
     {
         if (isset($_POST['account_status'])) {
             if ($_POST['account_status'] == 'locked') {
@@ -39,7 +41,7 @@ class LockUser
         }
     }
 
-    public function lockAccount($user_id)
+    public function lockAccount($user_id): void
     {
         update_user_meta($user_id, 'account_locked', TRUE);
 
@@ -48,7 +50,7 @@ class LockUser
         do_action('lock_bad_user_lock_account', $user_id);
     }
 
-    public function unlockAccount($user_id)
+    public function unlockAccount($user_id): void
     {
         delete_user_meta($user_id, 'account_locked');
         do_action('lock_bad_user_unlock_account', $user_id);
@@ -84,7 +86,7 @@ class LockUser
         }
     }
 
-    public static function kickOutBadUser($user_id)
+    public static function kickOutBadUser($user_id): void
     {
         $sessions = \WP_Session_Tokens::get_instance($user_id);
 
@@ -96,7 +98,7 @@ class LockUser
    *
    * @return self The singleton instance of the InpsydePlugin class.
    */
-  public static function instance()
+  public static function instance(): self
   {
     static $instance;
     if (!$instance) {
