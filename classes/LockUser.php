@@ -25,7 +25,7 @@ class LockUser
     public function lock_bad_user_output_lock_status_options($user)
     {
         $locking_data = $this->lock_bad_user_fetch_lock_status($user->data->ID);
-        require_once LOCK_BAD_USER_PLUGIN_BASE_PATH . 'templates/output_lock_status_options.php';
+        require_once LOCK_BAD_USER_PATH . 'templates/output_lock_status_options.php';
     }
 
     public function lock_bad_user_save_lock_status_options($user_id)

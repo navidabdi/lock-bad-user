@@ -34,8 +34,8 @@ if (!defined('ABSPATH')) {
 
 
 # Define constants
-define('LOCK_BAD_USER_PLUGIN_BASE_URL', plugins_url('',  __FILE__ ));
-define('LOCK_BAD_USER_PLUGIN_BASE_PATH', plugin_dir_path( __FILE__ ));
+define('LOCK_BAD_USER_URL', trailingslashit(plugin_dir_url( __FILE__ )));
+define('LOCK_BAD_USER_PATH', trailingslashit(plugin_dir_path( __FILE__ )));
 
 register_activation_hook(__FILE__, __NAMESPACE__ . '\Schema::activate');
 register_deactivation_hook(__FILE__, __NAMESPACE__ . '\Schema::deactivate');
