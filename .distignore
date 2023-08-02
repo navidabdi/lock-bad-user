@@ -13,3 +13,4 @@ package-lock.json
 readme.md
 composer.json
 composer.lock
+phpcs.xml.dist
