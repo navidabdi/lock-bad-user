@@ -3,7 +3,7 @@
  * Plugin Name: Lock Bad User
  * Plugin URI: https://wordpress.org/plugins/lock-bad-user/
  * Description: With this plugin you can block / lock bad users without deleting their accounts.
- * Version: 1.0.1
+ * Version: 1.1.2
  * Author: Nabi Abdi
  * Author URI: http://Webkima.com
  * Domain Path: /languages/

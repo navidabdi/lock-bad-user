@@ -4,9 +4,9 @@ Contributors: nabiabdi
 Donate link: https://webkima.com/
 Tags: Lock Users, Ban Bad Users, Lock/Ban Any User You Want,persian,parsi,farsi,iran,iranian,rtl,fa_IR
 Requires at least: 5.0
-Tested up to: 5.8
+Tested up to: 6.2.2
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,9 @@ With this plugin you can block any bad users without deleting the account and th
 1. Showing The Lock User Account Section
 
 == Changelog ==
+
+= 1.1.2 =
+* Fixing Some Bugs
 
 = 1.0 =
 * Published The Plugin
