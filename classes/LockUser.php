@@ -7,14 +7,14 @@ namespace Webkima\LockBadUser;
 use WP_Error;
 use WP_User;
 
-class LockUser
+final class LockUser
 {
     public function register(): void
     {
-        $this->initHook();
+        add_action('plugins_loaded', [$this, 'init']);
     }
 
-    public function initHook(): void
+    public function init(): void
     {
         add_action('edit_user_profile', [$this, 'outputLockStatusOptions']);
         add_action('edit_user_profile_update', [$this, 'saveLockStatusOption']);
