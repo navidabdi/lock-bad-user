@@ -10,7 +10,7 @@
     <arg name="colors"/>
 
     <config name="testVersion" value="7.2-"/>
-    <config name="text_domain" value="my-project"/>
+    <config name="lock-bad-user" value="lock-bad-user"/>
 
     <rule ref="Inpsyde">
         <exclude name="WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize" />
@@ -21,7 +21,7 @@
             <property
                 name="psr4"
                 type="array"
-                value="Inpsyde\MyProject=>src,Inpsyde\MyProject\Tests=>tests/src|tests/unit"/>
+                value="Webkima\LockBadUser=>classes,Webkima\LockBadUser\Tests=>tests/src|tests/Unit"/>
         </properties>
     </rule>
 
