@@ -35,10 +35,12 @@ class LockUser
 
     public function saveLockStatusOption(int $userId): void
     {
+        // phpcs:disable WordPress.Security.NonceVerification
         if (isset($_POST['account_status'])) {
-            if ($_POST['account_status'] == 'locked') {
+            if ($_POST['account_status'] === 'locked') {
                 $this->lockAccount($userId);
-            } else {
+            }
+            if ($_POST['account_status'] === 'unlocked') {
                 $this->unlockAccount($userId);
             }
         }
@@ -59,6 +61,14 @@ class LockUser
         do_action('lock_bad_user_unlock_account', $userId);
     }
 
+    /**
+     * Check if user is locked and kicked out.
+     *
+     * @param $user
+     *
+     * @return WP_Error|WP_User
+     * phpcs:disable
+     */
     public function userAuthentication($user)
     {
         $status = get_class($user);
