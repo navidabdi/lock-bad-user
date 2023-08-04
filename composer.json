@@ -39,6 +39,8 @@
     }
   },
   "scripts": {
+    "phpcs:check": "vendor/bin/phpcs",
+    "phpcs:fix": "vendor/bin/phpcbf",
     "test:unit": "phpunit --config=phpunit.xml"
   }
 }

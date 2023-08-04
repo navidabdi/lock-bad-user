@@ -9,9 +9,9 @@ class Schema
   /**
    * Activate the plugin schema.
    */
-  public static function activate(): void
-  {
-  }
+    public static function activate(): void
+    {
+    }
 
   /**
    * Deactivate the plugin schema.
@@ -19,9 +19,9 @@ class Schema
    * This method is called when the plugin is deactivated.
    * It flushes the rewrite rules.
    */
-  public static function deactivate(): void
-  {
-  }
+    public static function deactivate(): void
+    {
+    }
 
   /**
    * Uninstall the plugin schema.
@@ -29,8 +29,8 @@ class Schema
    * This method is called when the plugin is uninstalled.
    * It performs any necessary cleanup or data removal operations.
    */
-  public static function uninstall(): void
-  {
-    // Perform uninstallation tasks, if any.
-  }
+    public static function uninstall(): void
+    {
+      // Perform uninstallation tasks, if any.
+    }
 }
