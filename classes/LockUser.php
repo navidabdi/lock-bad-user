@@ -13,15 +13,15 @@ class LockUser
 
     public function initHook(): void
     {
-        add_action('edit_user_profile', array($this, 'outputLockStatusOptions'));
-        add_action('edit_user_profile_update', array($this, 'saveLockStatusOption'));
-        add_filter('authenticate', array($this, 'userAuthentication'), 9999);
-        add_filter('allow_password_reset', array($this, 'allowPasswordReset'), 9999, 2);
+        add_action('edit_user_profile', [$this, 'outputLockStatusOptions']);
+        add_action('edit_user_profile_update', [$this, 'saveLockStatusOption']);
+        add_filter('authenticate', [$this, 'userAuthentication'], 9999);
+        add_filter('allow_password_reset', [$this, 'allowPasswordReset'], 9999, 2);
     }
 
     private function isUserLocked($user_id): bool
     {
-        return (bool) get_user_meta($user_id, 'account_locked', TRUE);
+        return (bool) get_user_meta($user_id, 'account_locked', true);
     }
 
     public function outputLockStatusOptions($user): void
@@ -43,7 +43,7 @@ class LockUser
 
     public function lockAccount($user_id): void
     {
-        update_user_meta($user_id, 'account_locked', TRUE);
+        update_user_meta($user_id, 'account_locked', true);
 
         self::kickOutBadUser($user_id);
 
@@ -66,9 +66,9 @@ class LockUser
                 $message = apply_filters(
                     'account_lock_message',
                     sprintf(
-                      '<strong>%s</strong> %s',
-                      __('Error:', 'lock-bad-user'),
-                      __('Your account has been locked.', 'lock-bad-user')
+                        '<strong>%s</strong> %s',
+                        __('Error:', 'lock-bad-user'),
+                        __('Your account has been locked.', 'lock-bad-user')
                     ),
                     $user
                 );
@@ -102,13 +102,13 @@ class LockUser
    *
    * @return self The singleton instance of the InpsydePlugin class.
    */
-  public static function instance(): self
-  {
-    static $instance;
-    if (!$instance) {
-      $instance = new self();
-      $instance->register();
+    public static function instance(): self
+    {
+        static $instance;
+        if (!$instance) {
+            $instance = new self();
+            $instance->register();
+        }
+        return $instance;
     }
-    return $instance;
-  }
 }
