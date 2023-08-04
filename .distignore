@@ -3,6 +3,7 @@
 /node_modules
 /src
 /.wordpress-org
+/tests
 
 .distignore
 .eslintrc.js
@@ -18,3 +19,6 @@ phpcs.xml.dist
 phpcs.xml
 phpunit.xml.dist
 phpunit.xml
+.phpunit.result.cache
+webpack.config.js
+Readme.md
