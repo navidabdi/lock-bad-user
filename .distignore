@@ -15,3 +15,6 @@ readme.md
 composer.json
 composer.lock
 phpcs.xml.dist
+phpcs.xml
+phpunit.xml.dist
+phpunit.xml
