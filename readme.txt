@@ -2,11 +2,11 @@
 author: Webkima Academy
 Contributors: nabiabdi
 Donate link: https://zedkima.com/
-Tags: Lock Users, Ban Bad Users, Lock/Ban Any User You Want,persian,parsi,farsi,iran,iranian,rtl,fa_IR
+Tags: Lock Users, Ban Bad Users, Lock/Ban, Lock User Account, Lock User, Ban User, Lock Account, Ban Account, Lock, Ban, User, Account
 Requires at least: 5.0
-Tested up to: 6.4.3
+Tested up to: 6.7.2
 Requires PHP: 5.6
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,9 @@ With this plugin you can block any bad users without deleting the account and th
 1. Showing The Lock User Account Section
 
 == Changelog ==
+
+= 1.1.7 =
+* Compatibility with WordPress 6.7.2
 
 = 1.1.6 =
 * Compatibility with WordPress 6.4.3
