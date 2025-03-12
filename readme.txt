@@ -2,7 +2,7 @@
 author: Webkima Academy
 Contributors: nabiabdi
 Donate link: https://zedkima.com/
-Tags: Lock Users, Ban Bad Users, Lock/Ban, Lock User Account, Lock User, Ban User, Lock Account, Ban Account, Lock, Ban, User, Account
+Tags: Lock User Account, Lock User, Ban User, Lock Account, Ban Account
 Requires at least: 5.0
 Tested up to: 6.7.2
 Requires PHP: 5.6
