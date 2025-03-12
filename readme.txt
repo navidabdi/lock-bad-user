@@ -6,7 +6,7 @@ Tags: Lock User Account, Lock User, Ban User, Lock Account, Ban Account
 Requires at least: 5.0
 Tested up to: 6.7.2
 Requires PHP: 5.6
-Stable tag: 1.1.7
+Stable tag: 1.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,9 @@ With this plugin you can block any bad users without deleting the account and th
 1. Showing The Lock User Account Section
 
 == Changelog ==
+
+= 1.1.8 =
+* Limit the plugin tags to 5 in readme.txt
 
 = 1.1.7 =
 * Compatibility with WordPress 6.7.2
