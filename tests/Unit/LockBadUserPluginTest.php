@@ -7,13 +7,12 @@ namespace Webkima\LockBadUser\Tests\Unit;
 use Brain\Monkey\Functions;
 use Webkima\LockBadUser\LockUser;
 
-class LockBadUserPluginTest extends AbstractUnitTestcase
-{
-  protected function setUp(): void
-  {
+class LockBadUserPluginTest extends AbstractUnitTestcase {
+
+  protected function setUp(): void {
     parent::setUp();
 
-    if (!function_exists('load_plugin_textdomain')) {
+    if ( ! function_exists('load_plugin_textdomain')) {
       Functions\when('load_plugin_textdomain')->justReturn(true);
       Functions\when('plugin_basename')->justReturn('inpsyde-plugin.php');
     }
@@ -22,8 +21,7 @@ class LockBadUserPluginTest extends AbstractUnitTestcase
   /**
    * Tests if the plugin is instantiable as singleton.
    */
-  public function testPluginIfInstantiableAsSingleton(): void
-  {
+  public function testPluginIfInstantiableAsSingleton(): void {
     $expected = LockUser::instance();
 
     $this->assertInstanceOf(LockUser::class, $expected);
@@ -33,14 +31,13 @@ class LockBadUserPluginTest extends AbstractUnitTestcase
   /**
    * Tests if the plugin is hooked to the plugins_loaded action.
    */
-  public function testRegisterIfItAddsHooks()
-  {
-    (LockUser::instance())->register();
+  public function testRegisterIfItAddsHooks() {
+    ( LockUser::instance() )->register();
 
     self::assertNotFalse(
       has_action(
         'plugins_loaded',
-        [LockUser::instance(), 'init']
+        [ LockUser::instance(), 'init' ]
       )
     );
   }

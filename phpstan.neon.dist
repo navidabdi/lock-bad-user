@@ -1,0 +1,21 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+    level: 5
+    phpVersion: 70400
+    paths:
+        - lock-bad-user.php
+        - classes
+    bootstrapFiles:
+        - tests/phpstan-bootstrap.php
+    treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        # userAuthentication() implements the WP `authenticate` filter callback.
+        # The filter passes WP_User|WP_Error|null; the parameter must remain untyped
+        # so add_filter() accepts the method as a valid callable at level 5.
+        # Remove this entry if you add @param WP_User|WP_Error|null $user to the docblock.
+        -
+            identifier: missingType.parameter
+            path: classes/LockUser.php

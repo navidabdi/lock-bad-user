@@ -1,0 +1,17 @@
+{
+    "name": "lock-bad-user",
+    "version": "1.1.8",
+    "private": true,
+    "description": "Block bad users without deleting their accounts.",
+    "license": "GPL-2.0-or-later",
+    "scripts": {
+        "env:start": "wp-env start",
+        "env:stop": "wp-env stop",
+        "env:destroy": "wp-env destroy",
+        "env:rebuild": "wp-env destroy && wp-env start",
+        "env:reset": "wp-env destroy && wp-env start --update"
+    },
+    "devDependencies": {
+        "@wordpress/env": "^10.0.0"
+    }
+}
