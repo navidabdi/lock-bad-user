@@ -11,7 +11,6 @@
  * PHP Version: 7.4
  * Text Domain: lock-bad-user
  *
- *
  * @package LockBadUser
  *
  * LockBadUser is free software: you can redistribute it and/or modify
@@ -29,21 +28,20 @@ declare(strict_types=1);
 
 namespace Webkima\LockBadUser;
 
-if (!defined('ABSPATH')) {
-  exit; // Exit if accessed directly.
+if ( ! defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
 }
 
 
-# Define constants
+// Define constants
 define('LOCK_BAD_USER_URL', trailingslashit(plugin_dir_url( __FILE__ )));
 define('LOCK_BAD_USER_PATH', trailingslashit(plugin_dir_path( __FILE__ )));
 
-//register_activation_hook(__FILE__, __NAMESPACE__ . '\Schema::activate');
-//register_deactivation_hook(__FILE__, __NAMESPACE__ . '\Schema::deactivate');
-//register_uninstall_hook(__FILE__, __NAMESPACE__ . '\Schema::uninstall');
+// register_activation_hook(__FILE__, __NAMESPACE__ . '\Schema::activate');
+// register_deactivation_hook(__FILE__, __NAMESPACE__ . '\Schema::deactivate');
+// register_uninstall_hook(__FILE__, __NAMESPACE__ . '\Schema::uninstall');
 
-if (!class_exists(LockUser::class) && is_readable(__DIR__ . '/vendor/autoload.php')) {
-  require_once __DIR__ . '/vendor/autoload.php';
+if ( ! class_exists(LockUser::class) && is_readable(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
 }
 class_exists(LockUser::class) && LockUser::instance();
-

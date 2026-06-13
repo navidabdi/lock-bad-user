@@ -8,8 +8,8 @@ use Brain\Monkey;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 
-abstract class AbstractUnitTestcase extends TestCase
-{
+abstract class AbstractUnitTestcase extends TestCase {
+
   use MockeryPHPUnitIntegration;
 
   /**
@@ -17,8 +17,7 @@ abstract class AbstractUnitTestcase extends TestCase
    *
    * @return void
    */
-  protected function setUp(): void
-  {
+  protected function setUp(): void {
     parent::setUp();
     Monkey\setUp();
   }
@@ -28,8 +27,7 @@ abstract class AbstractUnitTestcase extends TestCase
    *
    * @return void
    */
-  protected function tearDown(): void
-  {
+  protected function tearDown(): void {
     Monkey\tearDown();
     parent::tearDown();
   }

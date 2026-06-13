@@ -22,3 +22,6 @@ phpunit.xml
 .phpunit.result.cache
 webpack.config.js
 Readme.md
+phpstan.neon.dist
+.wp-env.json
+.wp-env.override.json

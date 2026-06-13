@@ -1,0 +1,51 @@
+name: Plugin Check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  plugin-check:
+    name: WordPress Plugin Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: Install npm dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Create wp-env config for plugin check
+        run: |
+          cat > .wp-env.json << 'EOF'
+          {
+            "core": "WordPress/WordPress#6.7.2",
+            "plugins": ["."]
+          }
+          EOF
+
+      - name: Start wp-env
+        run: npx wp-env start --update
+
+      - name: Install plugin-check
+        run: npx wp-env run cli wp plugin install plugin-check --activate
+
+      - name: Run Plugin Check
+        run: |
+          npx wp-env run cli wp plugin check lock-bad-user \
+            --format=table \
+            --ignore-warnings \
+            --exclude-directories=.github,tests,vendor,node_modules \
+            --exclude-files=composer.json,composer.lock,package.json,package-lock.json,phpcs.xml.dist,phpstan.neon.dist,phpunit.xml.dist,.wp-env.json,.distignore,.gitignore,.gitattributes,Readme.md
+
+      - name: Stop wp-env
+        if: always()
+        run: npx wp-env stop
