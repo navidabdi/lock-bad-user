@@ -20,10 +20,10 @@ jobs:
         with:
           node-version: "lts/*"
 
-      - name: Install wp-env
-        run: npm install -g @wordpress/env
+      - name: Install npm dependencies
+        run: npm install --no-audit --no-fund
 
-      - name: Create wp-env config
+      - name: Create wp-env config for plugin check
         run: |
           cat > .wp-env.json << 'EOF'
           {
@@ -31,19 +31,17 @@ jobs:
             "plugins": [
               ".",
               "https://downloads.wordpress.org/plugin/plugin-check.zip"
-            ]
+            ],
+            "testsEnvironment": false
           }
           EOF
 
       - name: Start wp-env
-        run: wp-env start
-
-      - name: Activate plugin-check
-        run: wp-env run cli wp plugin activate plugin-check
+        run: npx wp-env start --update
 
       - name: Run Plugin Check
         run: |
-          wp-env run cli wp plugin check lock-bad-user \
+          npx wp-env run cli wp plugin check lock-bad-user \
             --format=table \
             --ignore-warnings \
             --exclude-directories=.github,tests,vendor,node_modules \
@@ -51,4 +49,4 @@ jobs:
 
       - name: Stop wp-env
         if: always()
-        run: wp-env stop
+        run: npx wp-env stop
