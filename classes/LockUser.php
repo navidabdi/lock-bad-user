@@ -67,7 +67,7 @@ final class LockUser {
     {
     $status = get_class($user);
     if ($status === 'WP_User') {
-        $isUserLocked = $this->isUserLocked($user->data->ID);
+        $isUserLocked = $this->isUserLocked((int) $user->data->ID);
         if ($isUserLocked) {
         $message = apply_filters(
         'account_lock_message',
