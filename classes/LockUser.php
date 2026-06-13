@@ -65,8 +65,7 @@ final class LockUser {
      */
     public function userAuthentication($user)
     {
-    $status = get_class($user);
-    if ($status === 'WP_User') {
+    if ($user instanceof WP_User) {
         $isUserLocked = $this->isUserLocked((int) $user->data->ID);
         if ($isUserLocked) {
         $message = apply_filters(
