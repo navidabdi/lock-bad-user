@@ -15,6 +15,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Remove .wp-env.json so plugin-check-action creates its own config
+        run: rm -f .wp-env.json
+
       - name: Run Plugin Check
         uses: WordPress/plugin-check-action@v1
         with:
