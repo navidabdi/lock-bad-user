@@ -28,15 +28,15 @@ jobs:
           cat > .wp-env.json << 'EOF'
           {
             "core": "WordPress/WordPress#6.7.2",
-            "plugins": [
-              ".",
-              "https://downloads.wordpress.org/plugin/plugin-check.zip"
-            ]
+            "plugins": ["."]
           }
           EOF
 
       - name: Start wp-env
         run: npx wp-env start --update
+
+      - name: Install plugin-check
+        run: npx wp-env run cli wp plugin install plugin-check --activate
 
       - name: Run Plugin Check
         run: |
