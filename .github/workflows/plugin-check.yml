@@ -31,8 +31,7 @@ jobs:
             "plugins": [
               ".",
               "https://downloads.wordpress.org/plugin/plugin-check.zip"
-            ],
-            "testsEnvironment": false
+            ]
           }
           EOF
 
